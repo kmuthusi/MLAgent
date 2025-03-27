@@ -1,80 +1,53 @@
-# MLAgent
-
-MLAgent is an automated machine learning (AutoML) tool that simplifies the process of training, evaluating, and comparing multiple machine learning models. It handles both classification and regression tasks with minimal user input, providing comprehensive insights and visualizations.
-
-## Features
-
-- **Multiple Model Support**:
-  - Traditional ML models (Logistic Regression, Decision Trees, Random Forest, SVM, etc.)
-  - Deep Learning models (MLP and CNN using Keras)
-  - Ensemble methods (XGBoost, Gradient Boosting)
-
-- **Automated Data Processing**:
-  - Automatic handling of categorical and numerical features
-  - Missing value imputation
-  - Feature scaling
-  - Label encoding for categorical variables
-
-- **Comprehensive Evaluation**:
-  - Accuracy metrics
-  - Confusion matrices
-  - ROC curves
-  - Precision-Recall curves
-  - Feature importance analysis
-
-- **Visualization Tools**:
-  - Target distribution plots
-  - Feature importance plots
-  - Model performance visualizations
-
-## Installation
-
-1. Clone this repository
-2. Install required packages:
-   ```bash
-   python check-and-install-packages.py
-   ```
-
-## Usage
-
-Basic usage example:
-
-```python
-from MLAgent import MLAgent
-import pandas as pd
-
-# Load your data
-X = pd.DataFrame(your_features)
-y = your_target
-
-# Initialize MLAgent
-agent = MLAgent()
-
-# Load and preprocess data
-agent.load_data(X, y, feature_names=your_feature_names)
-
-# Train and evaluate models
-agent.train_and_evaluate()
-
-# Make predictions
-predictions = agent.predict()
-```
-
-See the example files for more detailed usage:
-- `example-MLAgent-iris.py`: Example using the Iris dataset
-- `example-MLAgent-titanic.py`: Example using the Titanic dataset
-
-## Requirements
-
-See `requirements.txt` for a complete list of dependencies. Key packages include:
-- scikit-learn
-- tensorflow/keras
-- pandas
-- numpy
-- matplotlib
-- seaborn
-- xgboost
-
-## License
-
-[Your License Here]
+absl-py==2.2.1
+astunparse==1.6.3
+certifi==2025.1.31
+charset-normalizer==3.4.1
+contourpy==1.3.1
+cycler==0.12.1
+flatbuffers==25.2.10
+fonttools==4.56.0
+gast==0.6.0
+google-pasta==0.2.0
+grpcio==1.71.0
+h5py==3.13.0
+idna==3.10
+joblib==1.4.2
+keras==3.9.1
+kiwisolver==1.4.8
+libclang==18.1.1
+Markdown==3.7
+markdown-it-py==3.0.0
+MarkupSafe==3.0.2
+matplotlib==3.10.1
+mdurl==0.1.2
+ml_dtypes==0.5.1
+namex==0.0.8
+numpy==2.1.3
+opt_einsum==3.4.0
+optree==0.14.1
+packaging==24.2
+pandas==2.2.3
+pillow==11.1.0
+protobuf==5.29.4
+Pygments==2.19.1
+pyparsing==3.2.3
+python-dateutil==2.9.0.post0
+pytz==2025.2
+requests==2.32.3
+rich==13.9.4
+scikit-learn==1.6.1
+scipy==1.15.2
+seaborn==0.13.2
+setuptools==78.1.0
+six==1.17.0
+tensorboard==2.19.0
+tensorboard-data-server==0.7.2
+tensorflow==2.19.0
+termcolor==2.5.0
+threadpoolctl==3.6.0
+typing_extensions==4.13.0
+tzdata==2025.2
+urllib3==2.3.0
+Werkzeug==3.1.3
+wheel==0.45.1
+wrapt==1.17.2
