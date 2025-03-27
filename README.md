@@ -33,6 +33,9 @@ MLAgent is an automated machine learning (AutoML) tool that simplifies the proce
 2. Install required packages:
    ```bash
    python check-and-install-packages.py
+
+   # Or
+   pip install -r requirements.txt
    ```
 
 ## Usage
