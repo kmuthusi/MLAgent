@@ -1,6 +1,4 @@
 # MLAgent
-MLAgent is an automated ML framework designed to streamline the predictive modeling process by integrating data preprocessing, model training, evaluation, and prediction into a cohesive pipeline
-# MLAgent
 
 MLAgent is an automated machine learning (AutoML) tool that simplifies the process of training, evaluating, and comparing multiple machine learning models. It handles both classification and regression tasks with minimal user input, providing comprehensive insights and visualizations.
 
