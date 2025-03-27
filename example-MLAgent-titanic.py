@@ -1,4 +1,7 @@
 # Example: Using MLAgent to fit models to Titanic dataset
+# uncomment to run this to install required packages
+# check-and-install-packages.py
+
 if __name__ == "__main__":
     # read the data
     df = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")

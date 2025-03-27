@@ -1,4 +1,7 @@
 # Example: Using MLAgent to fit models to Iris dataset
+# uncomment to run this to install required packages
+# check-and-install-packages.py
+
 if __name__ == "__main__":
 
     # load Iris dataset
