@@ -489,7 +489,12 @@ class MLAgent:
         pred_proba = best_model.predict_proba(X_new_dl)
 
         # Determine predicted classes based on probabilities
-        pred = np.argmax(pred_proba, axis=1) if self.num_classes > 2 else (pred_proba[:, -1] >= 0.5).astype(int)
+        if self.num_classes > 2:
+            pred = np.argmax(pred_proba, axis=1)
+        else:
+            if not hasattr(self, 'optimal_cutoff'):
+                raise ValueError("Optimal cutoff not computed. Please call train_and_evaluate first.")
+            pred = (pred_proba[:, -1] >= self.optimal_cutoff).astype(int)
 
         # Keep numerical predictions for accuracy computation
         pred_numerical = pred.copy()
