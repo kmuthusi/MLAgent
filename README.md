@@ -80,7 +80,7 @@ See `requirements.txt` for a complete list of dependencies. Key packages include
 
 ## License
 
-Copyright (c) [year] [copyright holder]
+Copyright (c) [2025] [Jacques Muthusi, Daniel Maangi]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
