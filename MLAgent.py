@@ -515,25 +515,45 @@ class MLAgent:
     
             # Calculate overall accuracy
             accuracy = accuracy_score(self.y_test, y_pred)
-            
+    
             # Calculate precision, recall, and F1 score for each class
             precision = precision_score(self.y_test, y_pred, average=None)
             recall = recall_score(self.y_test, y_pred, average=None)
             f1 = f1_score(self.y_test, y_pred, average=None)
+    
+            # Calculate 95% CI for each class
+            precision_ci = [self.wilson_ci(tp, tp + fp) for tp, fp in zip(
+                [np.sum((y_pred == i) & (self.y_test == i)) for i in range(self.num_classes)],
+                [np.sum((y_pred == i) & (self.y_test != i)) for i in range(self.num_classes)]
+            )]
+    
+            recall_ci = [self.wilson_ci(tp, tp + fn) for tp, fn in zip(
+                [np.sum((y_pred == i) & (self.y_test == i)) for i in range(self.num_classes)],
+                [np.sum((y_pred != i) & (self.y_test == i)) for i in range(self.num_classes)]
+            )]
+    
+            f1_ci = [self.wilson_ci(tp, tp + fp) for tp, fp in zip(
+                [np.sum((y_pred == i) & (self.y_test == i)) for i in range(self.num_classes)],
+                [np.sum((y_pred == i) & (self.y_test != i)) for i in range(self.num_classes)]
+            )]
     
             # Create a DataFrame to hold the results
             dams_df = pd.DataFrame({
                 'Class': [f'Class {i}' for i in range(self.num_classes)],
                 'Precision': precision,
                 'Recall': recall,
-                'F1 Score': f1
+                'F1 Score': f1,
+                'Precision 95% CI': [f'({ci[0]:.4f}, {ci[1]:.4f})' for ci in precision_ci],
+                'Recall 95% CI': [f'({ci[0]:.4f}, {ci[1]:.4f})' for ci in recall_ci],
+                'F1 Score 95% CI': [f'({ci[0]:.4f}, {ci[1]:.4f})' for ci in f1_ci]
             })
     
             # Calculate macro averages
             dams_df.loc[len(dams_df)] = ['Macro Average', 
                                           dams_df['Precision'].mean(), 
                                           dams_df['Recall'].mean(), 
-                                          dams_df['F1 Score'].mean()]
+                                          dams_df['F1 Score'].mean(),
+                                          'N/A', 'N/A', 'N/A']  # No CI for macro average
     
             print("\nDiagnostic Accuracy Measures (DAMS) for Multiclass Classification:")
             print(dams_df)
