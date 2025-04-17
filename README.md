@@ -27,55 +27,25 @@ We demonstrate the usage of these agents using data from the [UCI Machine Learni
 **Example:** `Binary` classification task
 
 ```python
+# might require installing
 # pip install ucimlrepo 
 from ucimlrepo import fetch_ucirepo 
   
-# fetch dataset 
-national_health_and_nutrition_health_survey_2013_2014_nhanes_age_prediction_subset = fetch_ucirepo(id=887) 
+# Fetch dataset 
+nhanhes_data = fetch_ucirepo(id=887) 
   
-# data (as pandas dataframes) 
-X = national_health_and_nutrition_health_survey_2013_2014_nhanes_age_prediction_subset.data.features 
-y = national_health_and_nutrition_health_survey_2013_2014_nhanes_age_prediction_subset.data.targets 
+# Data (as pandas dataframes) 
+X = nhanhes_data.data.features 
+y = nhanhes_data.data.targets 
   
-# metadata 
-print(national_health_and_nutrition_health_survey_2013_2014_nhanes_age_prediction_subset.metadata) 
+# Metadata 
+print(nhanhes_data.metadata) 
   
-# variable information 
-print(national_health_and_nutrition_health_survey_2013_2014_nhanes_age_prediction_subset.variables) 
+# Variable information 
+print(nhanhes_data.variables) 
 
-# call MLAgent
-agent = MLAgent(save_path="nhanhes_model")  # Specify save directory
-agent.load_data(X, y)
-results = agent.train_and_evaluate()
-predictions = agent.predict()
-#print("Predictions:", predictions)
-
-# Example of loading the saved model
-best_model = agent.load_best_model()
-
-```
-
-**Example:** `Multiclass` classification task
-
-```python
-# pip install ucimlrepo 
-from ucimlrepo import fetch_ucirepo 
-  
-# fetch dataset 
-predict_students_dropout_and_academic_success = fetch_ucirepo(id=697) 
-  
-# data (as pandas dataframes) 
-X = predict_students_dropout_and_academic_success.data.features 
-y = predict_students_dropout_and_academic_success.data.targets 
-  
-# metadata 
-print(predict_students_dropout_and_academic_success.metadata) 
-  
-# variable information 
-print(predict_students_dropout_and_academic_success.variables) 
-
-# initialize MLAgentClassifier
-agent = MLAgentClassifier(save_path="student_dropout_models")  # Specify save directory
+# Initialize MLAgentClassifier agent
+agent = MLAgentClassifier(save_path="models\nhanhes_model")  # Specify save directory
 
 # Load data
 agent.load_data(X, y)
@@ -86,6 +56,44 @@ results = agent.train_and_evaluate()
 # Predict
 predictions = agent.predict()
 print("Predictions:", predictions[:10])
+
+# Example of loading the saved model
+best_model = agent.load_best_model()
+```
+
+**Example:** `Multiclass` classification task
+
+```python
+from ucimlrepo import fetch_ucirepo 
+  
+# Fetch dataset 
+predict_students_dropout_and_academic_success = fetch_ucirepo(id=697) 
+  
+# Data (as pandas dataframes) 
+X = predict_students_dropout_and_academic_success.data.features 
+y = predict_students_dropout_and_academic_success.data.targets 
+  
+# metadata 
+print(predict_students_dropout_and_academic_success.metadata) 
+  
+# variable information 
+print(predict_students_dropout_and_academic_success.variables) 
+
+# initialize MLAgentClassifier agent
+agent = MLAgentClassifier(save_path="models\student_dropout_models")  # Specify save directory
+
+# Load data
+agent.load_data(X, y)
+
+# Train and evaluate
+results = agent.train_and_evaluate()
+
+# Predict
+predictions = agent.predict()
+print("Predictions:", predictions[:10])
+
+# Example of loading the best saved model
+best_model = agent.load_best_model()
 ```
 
 ---
@@ -102,6 +110,38 @@ print("Predictions:", predictions[:10])
 - **Persistence:** Model serialization for reuse.
 
 **Applications:** Predicting house prices, stock values, patient recovery metrics.
+
+**Example**
+
+```python
+from ucimlrepo import fetch_ucirepo 
+  
+# Fetch dataset 
+forest_fires = fetch_ucirepo(id=162) 
+  
+# Data (as pandas dataframes) 
+X = forest_fires.data.features 
+y = forest_fires.data.targets 
+  
+# Metadata 
+print(forest_fires.metadata) 
+  
+# Variable information 
+print(forest_fires.variables) 
+
+# Initialize MLAgentRegressor agent
+agent = MLAgentRegressor(save_path="models\regression_models")
+
+# Load data
+agent.load_data(X, y)
+
+# Train and evaluate
+results = agent.train_and_evaluate()
+
+# Predict
+predictions = agent.predict()
+print("Predictions:", predictions[:10])
+```
 
 ---
 
