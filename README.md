@@ -1,10 +1,13 @@
 # MLAgent Suite
 
 ## Introduction
-The **MLAgent Suite** is a collection of sophisticated machine learning agents designed to address a wide spectrum of predictive modeling tasks across diverse domains, including healthcare, finance, social sciences, and engineering. These agents — `MLAgentClassifier`, `MLAgentRegressor`, `MLAgentCountRegressor`, `MLAgentLongitudinalClassifier`, `MLAgentLongitudinalRegressor`, `MLAgentLongitudinalCountRegressor`, and `MLAgentSurvival` — are engineered to handle complex data structures, automate analytical workflows, and deliver robust, interpretable results. Each agent is tailored to specific problem types, from standard classification and regression to specialized longitudinal and survival analyses, ensuring flexibility and precision. This executive summary introduces the functionalities, strengths, and applications of these agents, highlighting their role as comprehensive tools for researchers, data scientists, and practitioners seeking to tackle advanced predictive challenges.
+The **MLAgent Suite** is a collection of sophisticated machine learning agents designed to address a wide spectrum of predictive modeling tasks across diverse domains, including healthcare, finance, social sciences, and engineering. These agents — `MLAgentClassifier`, `MLAgentRegressor`, `MLAgentCountRegressor`, `MLAgentLongitudinalClassifier`, `MLAgentLongitudinalRegressor`, `MLAgentLongitudinalCountRegressor`, and `MLAgentSurvival` — are engineered to handle complex data structures, automate analytical workflows, and deliver robust, interpretable results. Each agent is tailored to specific problem types, from standard classification and regression to specialized longitudinal and survival analyses, ensuring flexibility and precision. This document introduces the functionalities, strengths, and applications of these agents, highlighting their role as comprehensive tools for researchers, data scientists, and practitioners seeking to tackle advanced predictive challenges.
 
 ## Overview of the MLAgent Suite
-The **MLAgent Suite** integrates state-of-the-art statistical, machine learning, and deep learning models within a unified framework, emphasizing automation, scalability, and interpretability. Below is a brief overview of each agent, outlining their primary purposes, key features, and target use cases.
+
+The **MLAgent Suite** combines cutting-edge statistical, machine learning, and deep learning models into a cohesive framework, focusing on automation, scalability, and interpretability. This suite includes a range of agents designed for various predictive tasks, each tailored to specific purposes, key features, and use cases. 
+
+We demonstrate the usage of these agents using data from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/datasets).
 
 ---
 
@@ -20,6 +23,70 @@ The **MLAgent Suite** integrates state-of-the-art statistical, machine learning,
 - **Persistence:** Supports model saving and loading for deployment.
 
 **Applications:** Customer segmentation, fraud detection, disease diagnosis.
+
+**Example:** `Binary` classification task
+
+```python
+# pip install ucimlrepo 
+from ucimlrepo import fetch_ucirepo 
+  
+# fetch dataset 
+national_health_and_nutrition_health_survey_2013_2014_nhanes_age_prediction_subset = fetch_ucirepo(id=887) 
+  
+# data (as pandas dataframes) 
+X = national_health_and_nutrition_health_survey_2013_2014_nhanes_age_prediction_subset.data.features 
+y = national_health_and_nutrition_health_survey_2013_2014_nhanes_age_prediction_subset.data.targets 
+  
+# metadata 
+print(national_health_and_nutrition_health_survey_2013_2014_nhanes_age_prediction_subset.metadata) 
+  
+# variable information 
+print(national_health_and_nutrition_health_survey_2013_2014_nhanes_age_prediction_subset.variables) 
+
+# call MLAgent
+agent = MLAgent(save_path="nhanhes_model")  # Specify save directory
+agent.load_data(X, y)
+results = agent.train_and_evaluate()
+predictions = agent.predict()
+#print("Predictions:", predictions)
+
+# Example of loading the saved model
+best_model = agent.load_best_model()
+
+```
+
+**Example:** `Multiclass` classification task
+
+```python
+# pip install ucimlrepo 
+from ucimlrepo import fetch_ucirepo 
+  
+# fetch dataset 
+predict_students_dropout_and_academic_success = fetch_ucirepo(id=697) 
+  
+# data (as pandas dataframes) 
+X = predict_students_dropout_and_academic_success.data.features 
+y = predict_students_dropout_and_academic_success.data.targets 
+  
+# metadata 
+print(predict_students_dropout_and_academic_success.metadata) 
+  
+# variable information 
+print(predict_students_dropout_and_academic_success.variables) 
+
+# initialize MLAgentClassifier
+agent = MLAgentClassifier(save_path="student_dropout_models")  # Specify save directory
+
+# Load data
+agent.load_data(X, y)
+
+# Train and evaluate
+results = agent.train_and_evaluate()
+
+# Predict
+predictions = agent.predict()
+print("Predictions:", predictions[:10])
+```
 
 ---
 
