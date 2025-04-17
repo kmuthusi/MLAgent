@@ -152,7 +152,7 @@ The **MLAgent Suite** represents a significant advancement in predictive modelin
 
 ## Usage
 
-Basic usage example
+1. Basic usage example for classification, regression and count outcome regression
 
 ```python
 from mlagents import MLAgentClassifier
@@ -185,6 +185,8 @@ best_model = agent.load_best_model()
 See the example files for more detailed usage:
 - `example-MLAgent-iris.py`: Example using the Iris dataset
 - `example-MLAgent-titanic.py`: Example using the Titanic dataset
+
+2. 
 
 ## Requirements
 
