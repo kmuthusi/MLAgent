@@ -114,7 +114,7 @@ The **MLAgent Suite** integrates state-of-the-art statistical, machine learning,
 ---
 
 ## Strengths and Innovations
-The MLAgent Suite stands out for its integration of advanced methodologies within a user-friendly framework:
+The **MLAgent Suite** stands out for its integration of advanced methodologies within a user-friendly framework:
 - **Comprehensive Model Support:** Combines statistical, machine learning, and deep learning models.
 - **Automation:** Automates preprocessing, model training, evaluation, and visualization.
 - **Robust Evaluation:** Employs domain-specific metrics with bootstrapped confidence intervals.
@@ -125,7 +125,7 @@ The MLAgent Suite stands out for its integration of advanced methodologies withi
 ---
 
 ## Applications and Impact
-The MLAgent Suite addresses a broad range of predictive tasks:
+The **MLAgent Suite** addresses a broad range of predictive tasks:
 - **Healthcare:** Diagnosing diseases, predicting biomarkers, hospital visit modeling, survival estimation.
 - **Finance:** Stock price forecasting, fraud detection, predicting transaction counts.
 - **Social Sciences:** Analyzing behavioral trends and panel survey outcomes.
@@ -134,7 +134,7 @@ The MLAgent Suite addresses a broad range of predictive tasks:
 ---
 
 ## Conclusion
-The MLAgent Suite represents a significant advancement in predictive modeling, offering a cohesive set of tools that balance sophistication with accessibility. From standard classification and regression to complex longitudinal and survival analyses, the agents empower users to extract meaningful insights from diverse datasets. Their automated workflows, robust evaluations, and interpretable outputs make them indispensable for tackling real-world challenges. As data complexity grows, the MLAgent Suite is poised to evolve, integrating new models and techniques to remain at the forefront of machine learning innovation.
+The **MLAgent Suite** represents a significant advancement in predictive modeling, offering a cohesive set of tools that balance sophistication with accessibility. From standard classification and regression to complex longitudinal and survival analyses, the agents empower users to extract meaningful insights from diverse datasets. Their automated workflows, robust evaluations, and interpretable outputs make them indispensable for tackling real-world challenges. As data complexity grows, the MLAgent Suite is poised to evolve, integrating new models and techniques to remain at the forefront of machine learning innovation.
 
 ## Installation
 
