@@ -1,7 +1,7 @@
 # MLAgent Suite
 
 ## Introduction
-The MLAgent Suite is a collection of sophisticated machine learning agents designed to address a wide spectrum of predictive modeling tasks across diverse domains, including healthcare, finance, social sciences, and engineering. These agents — `MLAgentClassifier`, `MLAgentRegressor`, `MLAgentCountRegressor`, `MLAgentLongitudinalClassifier`, `MLAgentLongitudinalRegressor`, `MLAgentLongitudinalCountRegressor`, and `MLAgentSurvival` — are engineered to handle complex data structures, automate analytical workflows, and deliver robust, interpretable results. Each agent is tailored to specific problem types, from standard classification and regression to specialized longitudinal and survival analyses, ensuring flexibility and precision. This executive summary introduces the functionalities, strengths, and applications of these agents, highlighting their role as comprehensive tools for researchers, data scientists, and practitioners seeking to tackle advanced predictive challenges.
+The **MLAgent Suite** is a collection of sophisticated machine learning agents designed to address a wide spectrum of predictive modeling tasks across diverse domains, including healthcare, finance, social sciences, and engineering. These agents — `MLAgentClassifier`, `MLAgentRegressor`, `MLAgentCountRegressor`, `MLAgentLongitudinalClassifier`, `MLAgentLongitudinalRegressor`, `MLAgentLongitudinalCountRegressor`, and `MLAgentSurvival` — are engineered to handle complex data structures, automate analytical workflows, and deliver robust, interpretable results. Each agent is tailored to specific problem types, from standard classification and regression to specialized longitudinal and survival analyses, ensuring flexibility and precision. This executive summary introduces the functionalities, strengths, and applications of these agents, highlighting their role as comprehensive tools for researchers, data scientists, and practitioners seeking to tackle advanced predictive challenges.
 
 ## Overview of the MLAgent Suite
 The **MLAgent Suite** integrates state-of-the-art statistical, machine learning, and deep learning models within a unified framework, emphasizing automation, scalability, and interpretability. Below is a brief overview of each agent, outlining their primary purposes, key features, and target use cases.
@@ -58,7 +58,7 @@ The **MLAgent Suite** integrates state-of-the-art statistical, machine learning,
 **Purpose:** Designed for classification tasks with longitudinal data, predicting categorical outcomes from time-series observations.
 
 **Key Features:**
-- **Model Support:** Random-effects logistic regression, longitudinal random forests, Hidden Markov Models, GPBoost, deep learning models (TCN, LSTM, GRU, Transformer).
+- **Model Support:** Random-effects logistic regression, longitudinal random forests, Hidden Markov Model (HMM), GPBoost, deep learning models (TCN, LSTM, GRU, Transformer).
 - **Preprocessing:** Variable-length sequences, imputes missing values, encodes categoricals, scales features.
 - **Evaluation:** AUC-ROC, AUPRC, accuracy, precision, recall, F1-score, with optimal threshold selection via Youden’s J statistic.
 - **Visualization:** Target distribution bar plots, ROC/PRC curves, feature importance plots.
@@ -73,7 +73,7 @@ The **MLAgent Suite** integrates state-of-the-art statistical, machine learning,
 **Purpose:** Targets regression tasks with longitudinal data, predicting continuous outcomes from temporal sequences.
 
 **Key Features:**
-- **Model Support:** Random-effects linear regression, longitudinal random forests, HMM, GPBoost, and deep learning models (TCN, LSTM, GRU, Transformer).
+- **Model Support:** Random-effects linear regression, longitudinal random forests, Hidden Markov Model (HMM), GPBoost, and deep learning models (TCN, LSTM, GRU, Transformer).
 - **Preprocessing:** Variable-length sequences, imputes missing values, encodes categoricals, scales features.
 - **Evaluation:** MAE, MSE, RMSE, R², with bootstrapped confidence intervals.
 - **Visualization:** Outcome distribution histograms, prediction vs. actual scatter plots, feature importance bar charts.
@@ -88,7 +88,7 @@ The **MLAgent Suite** integrates state-of-the-art statistical, machine learning,
 **Purpose:** Specialized for regression tasks with longitudinal count data, modeling time-series count outcomes.
 
 **Key Features:**
-- **Model Support:** Random-effects Poisson regression, longitudinal random forests, HMM, GPBoost, deep learning models (TCN, LSTM, GRU, Transformer).
+- **Model Support:** Random-effects Poisson regression, longitudinal random forests, Hidden Markov Model (HMM), GPBoost, deep learning models (TCN, LSTM, GRU, Transformer).
 - **Preprocessing:** Non-negative targets, variable-length sequences, imputes missing values, scales features.
 - **Evaluation:** Poisson deviance, MSE, MAE, and R².
 - **Visualization:** Count distribution histograms, prediction vs. actual scatter plots, feature importance visualizations.
@@ -134,7 +134,7 @@ The **MLAgent Suite** addresses a broad range of predictive tasks:
 ---
 
 ## Conclusion
-The **MLAgent Suite** represents a significant advancement in predictive modeling, offering a cohesive set of tools that balance sophistication with accessibility. From standard classification and regression to complex longitudinal and survival analyses, the agents empower users to extract meaningful insights from diverse datasets. Their automated workflows, robust evaluations, and interpretable outputs make them indispensable for tackling real-world challenges. As data complexity grows, the MLAgent Suite is poised to evolve, integrating new models and techniques to remain at the forefront of machine learning innovation.
+The **MLAgent Suite** represents a significant advancement in predictive modeling, offering a cohesive set of tools that balance sophistication with accessibility. From standard classification and regression to complex longitudinal and survival analyses, the agents empower users to extract meaningful insights from diverse datasets. Their automated workflows, robust evaluations, and interpretable outputs make them indispensable for tackling real-world challenges. As data complexity grows, the **MLAgent Suite** is poised to evolve, integrating new models and techniques to remain at the forefront of machine learning innovation.
 
 ## Installation
 
