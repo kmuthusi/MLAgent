@@ -24,78 +24,6 @@ We demonstrate the usage of these agents using data from the [UCI Machine Learni
 
 **Applications:** Customer segmentation, fraud detection, disease diagnosis.
 
-**Example:** `Binary` classification task
-
-```python
-# might require installing
-# pip install ucimlrepo 
-from ucimlrepo import fetch_ucirepo 
-  
-# Fetch dataset 
-nhanhes_data = fetch_ucirepo(id=887) 
-  
-# Data (as pandas dataframes) 
-X = nhanhes_data.data.features 
-y = nhanhes_data.data.targets 
-  
-# Metadata 
-print(nhanhes_data.metadata) 
-  
-# Variable information 
-print(nhanhes_data.variables) 
-
-# Initialize MLAgentClassifier agent
-agent = MLAgentClassifier(save_path="models\nhanhes_model")  # Specify save directory
-
-# Load data
-agent.load_data(X, y)
-
-# Train and evaluate
-results = agent.train_and_evaluate()
-
-# Predict
-predictions = agent.predict()
-print("Predictions:", predictions[:10])
-
-# Example of loading the saved model
-best_model = agent.load_best_model()
-```
-
-**Example:** `Multiclass` classification task
-
-```python
-from ucimlrepo import fetch_ucirepo 
-  
-# Fetch dataset 
-predict_students_dropout_and_academic_success = fetch_ucirepo(id=697) 
-  
-# Data (as pandas dataframes) 
-X = predict_students_dropout_and_academic_success.data.features 
-y = predict_students_dropout_and_academic_success.data.targets 
-  
-# metadata 
-print(predict_students_dropout_and_academic_success.metadata) 
-  
-# variable information 
-print(predict_students_dropout_and_academic_success.variables) 
-
-# initialize MLAgentClassifier agent
-agent = MLAgentClassifier(save_path="models\student_dropout_models")  # Specify save directory
-
-# Load data
-agent.load_data(X, y)
-
-# Train and evaluate
-results = agent.train_and_evaluate()
-
-# Predict
-predictions = agent.predict()
-print("Predictions:", predictions[:10])
-
-# Example of loading the best saved model
-best_model = agent.load_best_model()
-```
-
 ---
 
 ### 2. MLAgentRegressor
@@ -110,38 +38,6 @@ best_model = agent.load_best_model()
 - **Persistence:** Model serialization for reuse.
 
 **Applications:** Predicting house prices, stock values, patient recovery metrics.
-
-**Example**
-
-```python
-from ucimlrepo import fetch_ucirepo 
-  
-# Fetch dataset 
-forest_fires = fetch_ucirepo(id=162) 
-  
-# Data (as pandas dataframes) 
-X = forest_fires.data.features 
-y = forest_fires.data.targets 
-  
-# Metadata 
-print(forest_fires.metadata) 
-  
-# Variable information 
-print(forest_fires.variables) 
-
-# Initialize MLAgentRegressor agent
-agent = MLAgentRegressor(save_path="models\regression_models")
-
-# Load data
-agent.load_data(X, y)
-
-# Train and evaluate
-results = agent.train_and_evaluate()
-
-# Predict
-predictions = agent.predict()
-print("Predictions:", predictions[:10])
-```
 
 ---
 
@@ -256,7 +152,7 @@ The **MLAgent Suite** represents a significant advancement in predictive modelin
 
 ## Usage
 
-Basic usage example: `Binary` and `Multiclass` classification task
+Basic usage example
 
 ```python
 from mlagents import MLAgentClassifier
@@ -273,10 +169,17 @@ agent = MLAgentClassifier()
 agent.load_data(X, y, feature_names=your_feature_names)
 
 # Train and evaluate models
-agent.train_and_evaluate()
+# you specify models to train
+agent.train_and_evaluate(models_to_train = ['Logistic Regression','XGBoost','Keras CNN'], save_path="models\best_model")
+
+# or train on all models
+agent.train_and_evaluate(save_path="models\best_model")
 
 # Make predictions
 predictions = agent.predict()
+
+# Example of loading the saved model
+best_model = agent.load_best_model()
 ```
 
 See the example files for more detailed usage:
