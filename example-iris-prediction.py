@@ -22,3 +22,6 @@ agent = MLAgentClassifier()
 agent.load_data(X, y, feature_names=feature_names)
 agent.train_and_evaluate(save_path = "models\best_models")
 predictions = agent.predict()
+
+# Example of loading the saved model
+best_model = agent.load_best_model()
