@@ -4,24 +4,28 @@
 
 from mlagents import MLAgentClassifier
 
-# read the data
+# Read the data
 df = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
 
-# perform data manipulation
+# Perform data manipulation
 df = df.drop(columns=['PassengerId', 'Name', 'Ticket', 'Cabin'])
 
-# speficify features
+# Speficify features
 X = df.drop(columns=['Survived'])
 
-# specicify target
+# Specicify target
 y = df['Survived']
 
-# load agent
+# Initialize agent
 agent = MLAgentClassifier()
 
-# apply agent to data
+# Load data
 agent.load_data(X, y)
+
+# Train on select algorithms
 results = agent.train_and_evaluate(model_to_train=['XGBoost', 'Keras MLP', 'Random Forest'], save_path="models\best_binary_classifier")
+
+# Make predict
 predictions = agent.predict()
 
 # Example of loading the saved model
