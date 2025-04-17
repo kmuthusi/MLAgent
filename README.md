@@ -152,7 +152,7 @@ The **MLAgent Suite** represents a significant advancement in predictive modelin
 
 ## Usage
 
-1. Basic usage example for classification, regression and count outcome regression
+1. Example: Simple classification, linear regression and count outcome regression task
 
 ```python
 from mlagents import MLAgentClassifier
@@ -186,7 +186,70 @@ See the example files for more detailed usage:
 - `example-MLAgent-iris.py`: Example using the Iris dataset
 - `example-MLAgent-titanic.py`: Example using the Titanic dataset
 
-2. 
+2. Example: longitudinal outcome prediction task
+
+```python
+from mlagents import MLAgentLongitudinalClassifier
+import pandas as pd
+
+# Load data
+data = pd.read_csv('longitudinal_data.csv')
+
+# Initialize agent
+agent = MLAgentLongitudinalClassifier()
+
+# Define columns
+feature_cols = ['feature1', 'feature2', 'feature3']
+id_col = 'patient_id'
+time_col = 'visit_date'
+target_col = 'outcome'
+
+# Train and evaluate
+agent.train_and_evaluate(df_or_X=data,
+                         feature_columns=feature_cols,
+                         target_column=target_col,
+                         id_column=id_col,
+                         time_column=time_col)
+
+# Predict on new data
+new_data = pd.read_csv('new_longitudinal_data.csv')
+predictions = agent.predict_df(new_data, feature_cols, id_col, time_col)
+```
+
+3. Example: time-to-event prediction task
+
+```python
+from mlagents import MLAgentSurvival
+import pandas as pd
+
+# Load data
+data = pd.read_csv('survival_data.csv')
+
+# Initialize agent
+agent = MLAgentSurvival(
+    data=data,
+    time_col='time_to_event',
+    event_col='event',
+    feature_cols=['age', 'biomarker1', 'biomarker2'],
+    models_to_fit=['CoxPH', 'RSF', 'DeepHit']
+)
+
+# Fit models and evaluate
+agent.fit_all_models()
+
+# Plot Kaplan-Meier curve
+agent.plot_kaplan_meier(show_plot=True)
+
+# Plot feature importance
+agent.plot_best_model_feature_importance(show_plot=True)
+
+# Predict on new data
+new_data = pd.read_csv('new_survival_data.csv')
+predictions = agent.predict(new_data)
+
+# Save best model
+agent.save_model(agent.best_model, 'best_model.pkl')
+```
 
 ## Requirements
 
