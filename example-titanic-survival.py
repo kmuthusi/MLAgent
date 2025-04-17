@@ -21,7 +21,7 @@ agent = MLAgentClassifier()
 
 # apply agent to data
 agent.load_data(X, y)
-results = agent.train_and_evaluate(save_path="models\best_binary_classifier")
+results = agent.train_and_evaluate(model_to_train=['XGBoost', 'Keras MLP', 'Logistic Regression', "Random Forest'], save_path="models\best_binary_classifier")
 predictions = agent.predict()
 
 # Example of loading the saved model
