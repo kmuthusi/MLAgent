@@ -2,7 +2,7 @@
 # uncomment to run this to install required packages
 # check-and-install-packages.py
 
-from mlagents import MLAgentRegressor
+from mlagents import MLAgentClassifier
 
 # read the data
 df = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
@@ -17,11 +17,12 @@ X = df.drop(columns=['Survived'])
 y = df['Survived']
 
 # load agent
-agent = MLAgentRegressor()
+agent = MLAgentClassifier()
 
 # apply agent to data
 agent.load_data(X, y)
-results = agent.train_and_evaluate()
+results = agent.train_and_evaluate(save_path="models\best_binary_classifier")
 predictions = agent.predict()
 
-
+# Example of loading the saved model
+best_model = agent.load_best_model()
