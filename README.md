@@ -183,8 +183,8 @@ best_model = agent.load_best_model()
 ```
 
 See the example files for more detailed usage:
-- `example-MLAgent-iris.py`: Example using the Iris dataset
-- `example-MLAgent-titanic.py`: Example using the Titanic dataset
+- `example-iris-prediction.py`: Example using the Iris dataset
+- `example-titanic-survival.py`: Example using the Titanic dataset
 
 2. Example: longitudinal outcome prediction task
 
