@@ -1,6 +1,8 @@
 # MLAgent
 
-MLAgent is an automated machine learning (AutoML) tool that simplifies the process of training, evaluating, and comparing multiple machine learning models. It handles both classification and regression tasks with minimal user input, providing comprehensive insights and visualizations.
+The MLAgent Suite is a collection of seven sophisticated machine learning agents designed to address a wide spectrum of predictive modeling tasks across diverse domains, including healthcare, finance, social sciences, and engineering. These agents—`MLAgentClassifier`, `MLAgentRegressor`, `MLAgentCountRegressor`, `MLAgentLongitudinalClassifier`, `MLAgentLongitudinalRegressor`, `MLAgentLongitudinalCountRegressor`, and `MLAgentSurvival`—are engineered to handle complex data structures, automate analytical workflows, and deliver robust, interpretable results. Each agent is tailored to specific problem types, from standard classification and regression to specialized longitudinal and survival analyses, ensuring flexibility and precision. This executive summary introduces the functionalities, strengths, and applications of these agents, highlighting their role as comprehensive tools for researchers, data scientists, and practitioners seeking to tackle advanced predictive challenges.
+
+The MLAgent Suite integrates state-of-the-art statistical, machine learning, and deep learning models within a unified framework, emphasizing automation, scalability, and interpretability. Below is a brief overview of each agent, outlining their primary purposes, key features, and target use cases.
 
 ## Features
 
