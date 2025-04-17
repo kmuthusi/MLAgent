@@ -1,24 +1,27 @@
-# Example: Using MLAgent to fit models to Titanic dataset
+# Example: Using MLAgent Suite to fit classification models to Titanic dataset
 # uncomment to run this to install required packages
 # check-and-install-packages.py
 
-if __name__ == "__main__":
-    # read the data
-    df = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
+from mlagents import MLAgentRegressor
 
-    # perform data manipulation
-    df = df.drop(columns=['PassengerId', 'Name', 'Ticket', 'Cabin'])
+# read the data
+df = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
 
-    # speficify features
-    X = df.drop(columns=['Survived'])
+# perform data manipulation
+df = df.drop(columns=['PassengerId', 'Name', 'Ticket', 'Cabin'])
 
-    # specicify target
-    y = df['Survived']
+# speficify features
+X = df.drop(columns=['Survived'])
 
-    # load agent
-    agent = MLAgent()
+# specicify target
+y = df['Survived']
 
-    # apply agent to data
-    agent.load_data(X, y)
-    results = agent.train_and_evaluate()
-    predictions = agent.predict()
+# load agent
+agent = MLAgentRegressor()
+
+# apply agent to data
+agent.load_data(X, y)
+results = agent.train_and_evaluate()
+predictions = agent.predict()
+
+
